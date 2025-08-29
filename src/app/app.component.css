@@ -1,0 +1,23 @@
+.body {
+  padding: 0;
+}
+#header_container{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10001;
+}
+
+#container{
+  padding: 40px 48px 60px 48px;
+  width: 100%;
+  height: calc(100vh - 48px);
+  background-color: #E5E5E5;
+}
+
+#footer_container{
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+

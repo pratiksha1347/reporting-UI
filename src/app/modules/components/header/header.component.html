@@ -1,1 +1,8 @@
-<hcm-banner-navbar></hcm-banner-navbar>
+<hcm-banner-navbar
+  [name]="bannerTitle"
+  [imageUrl] = "image"
+  [showHome]="false"
+  [showSetting]="false"
+  [showLogout]="true"
+  (onLogout)="onLogout($event)"
+></hcm-banner-navbar>
