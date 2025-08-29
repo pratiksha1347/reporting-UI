@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-agreement-create-form',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AgreementCreateFormComponent {
 
+  constructor(private router: Router) { }
+  onHomeClick(){
+    this.router.navigate(['/main']);
+  }
 }

@@ -1,0 +1,8 @@
+.tab-container{
+  background: #FFFFFF;
+  padding: 1%;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -9,6 +9,7 @@ import { ReportDownloadFormComponent } from './modules/components/report-downloa
 import { AgreementCreateFormComponent } from './modules/components/agreement-create-form/agreement-create-form.component';
 import {RouterOutlet} from "@angular/router";
 import { AgreementViewTabComponent } from './modules/components/agreement-view-tab/agreement-view-tab.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AgreementViewTabComponent } from './modules/components/agreement-view-t
   imports: [
     BrowserModule,
     HcmNgModule,
-    RouterOutlet
+    RouterOutlet,
+    AppRoutingModule
   ],
   providers: [
     {

@@ -1,1 +1,33 @@
-<p>agreement-view-tab works!</p>
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="d-flex tab-container">
+
+      <!-- Customer ID Input -->
+      <div class="col-4">
+        <hcm-input
+          [type]="'text'"
+          [label]="'Customer ID'"
+          [required]="true"
+          [placeholder]="'Enter Customer ID'"
+        ></hcm-input>
+      </div>
+
+      <!-- Buttons -->
+      <div class="col-3 d-flex flex-column gap-2">
+        <hcm-button
+        [label]="agreementLabel"
+        [variant]="'ghost'"
+        [disabled]="false"
+        (onButtonClick)="onAgreementClick()"
+      ></hcm-button>
+
+        <hcm-button
+          [label]="reportLabel"
+          [variant]="'ghost'"
+          [disabled]="false"
+          (onButtonClick)="onReportClick()"
+        ></hcm-button>
+      </div>
+    </div>
+  </div>
+</div>
