@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 export class ReportDownloadFormComponent {
 constructor(private router: Router) { }
   onHomeClick(){
-    this.router.navigate(['/main']);
+    this.router.navigate(['']);
   }
 
 }
