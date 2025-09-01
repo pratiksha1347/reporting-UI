@@ -10,6 +10,6 @@ export class AgreementCreateFormComponent {
 
   constructor(private router: Router) { }
   onHomeClick(){
-    this.router.navigate(['/main']);
+    this.router.navigate(['']);
   }
 }

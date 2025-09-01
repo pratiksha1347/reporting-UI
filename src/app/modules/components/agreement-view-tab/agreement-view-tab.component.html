@@ -9,6 +9,7 @@
           [label]="'Customer ID'"
           [required]="true"
           [placeholder]="'Enter Customer ID'"
+          (onEnter)="getCustomerData()"
         ></hcm-input>
       </div>
 
@@ -19,7 +20,7 @@
         [variant]="'ghost'"
         [disabled]="false"
         (onButtonClick)="onAgreementClick()"
-      ></hcm-button>
+        ></hcm-button>
 
         <hcm-button
           [label]="reportLabel"
@@ -29,5 +30,21 @@
         ></hcm-button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Card containing the hcm-grid -->
+<div class="card mt-4">
+  <div class="card-body">
+    <hcm-grid
+      [isSearchRequired]="false"
+      [isFilterRequired]="false"
+      [isButtonRequired]="false"
+      [isRowCountRequired]="false"
+      [tableType]="'default'"
+      [configColumn]="configColumn"
+      [tableData]="tableData"
+      [stickyHeader]="true">
+    </hcm-grid>
   </div>
 </div>
