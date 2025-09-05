@@ -1,132 +1,66 @@
-<div class="min-vh-100 d-flex justify-content-center align-items-start bg-light">
-  <div class="bg-white p-4 rounded shadow mt-5">
-    <h1>Create Agreement</h1>
-    <form #myForm="ngForm">
-      <div class="form-group">
-        <hcm-input
-          [type]="'text'"
-          [label]="'Customer ID'"
-          [required]="true"
-          [placeholder]="'Enter Customer ID'"
-          [name]="'customerId'"
-          [(ngModel)]="customerId"
-        ></hcm-input>
-      </div>
+<div class="container-sm container-md container-lg container-xl container-xxl d-flex justify-content-center min-vh-80 mt-5">
+  <div class="bg-white p-5 shadow rounded w-100" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">Create Agreement</h2>
 
-      <div class="form-group">
-        <hcm-datepicker
-          [isRequired]="true"
-          [label]="'Start Date'"
-          [placeholderText]="'Enter Start Date'"
-          [name]="'startDate'"
-y
-          [(ngModel)]="startDate"
-        ></hcm-datepicker>
-      </div>
-
-        <hcm-datepicker
-          [isRequired]="true"
-          [label]="'Expiry Date'"
-          [placeholderText]="'Enter Expiry Date'"
-          [name]="'expiryDate'"
-          [(ngModel)]="expiryDate"
-        ></hcm-datepicker>
-
-      <div class="form-group">
-        <hcm-input
-          [type]="'number'"
-          [label]="'Amount'"
-          [required]="true"
-          [placeholder]="'Enter Amount'"
-          [name]="'amount'"
-          [(ngModel)]="amount"
-        ></hcm-input>
-      </div>
-
-      <div class="form-group mb-3 mt-3">
-        <hcm-radio
-          [checked]="false"
-          [label]="'Auto Renewal'"
-          [required]="true"
-          [name]="'autoReview'"
-          [(ngModel)]="autoReview"
-        ></hcm-radio>
-      </div>
-
-      <div class="d-flex">
-        <div class="p-2">
-          <hcm-button
-            [label]="'Submit'"
-            [variant]="'primary'"
-            [iconPlacement]="'left'"
-            [type]="'submit'"
-            [disabled]="false"
-            [hidden]="false"
-            (onButtonClick)="onSubmit(myForm)"
-          ></hcm-button>
+    <form *ngIf="form!==undefined" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <ng-container>
+        <!-- Customer Id -->
+        <div class="mb-3">
+          <hcm-input
+            [label]="'Customer_Id'"
+            [required]="true"
+            [type]="'text'"
+            [placeholder]="'Enter Customer Id'"
+            [control]="customerIdControl">
+          </hcm-input>
         </div>
-        <div class="p-2">
+
+        <!-- Start Date -->
+        <div class="mb-3">
+          <hcm-datepicker
+            [isRequired]="true"
+            [label]="'Start Date'"
+            [placeholderText]="'Enter Start Date'"
+            (getSelectedDate)="selectedStartDate($event)">
+          </hcm-datepicker>
+        </div>
+
+        <!-- Expiry Date -->
+        <div class="mb-3">
+          <hcm-datepicker
+            [isRequired]="true"
+            [label]="'Expiry Date'"
+            [placeholderText]="'Enter Expiry Date'"
+            (getSelectedDate)="selectedExpiryDate($event)">
+          </hcm-datepicker>
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-4">
+          <hcm-input
+            [required]="true"
+            [type]="'number'"
+            [label]="'Amount'"
+            [placeholder]="'Enter Amount'"
+            [control]="amountControl">
+          </hcm-input>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between">
           <hcm-button
             [label]="'Back'"
             [variant]="'ghost'"
-            [iconPlacement]="'right'"
-            [type]="'button'"
-            [disabled]="false"
-            [hidden]="false"
-            (onButtonClick)="onHomeClick()"
-          ></hcm-button>
+            (onButtonClick)="onHomeClick()">
+          </hcm-button>
+
+          <hcm-button
+            [label]="'Submit'"
+            [variant]="'primary'"
+            (onButtonClick)="onSubmit(form)">
+          </hcm-button>
         </div>
-      </div>
+      </ng-container>
     </form>
   </div>
 </div>
-
-<!--<form>-->
-<!--  <div class="form-group">-->
-<!--    <label for="exampleInputEmail1">Customer Id</label>-->
-<!--    <input type="text" class="form-control" id="customerId" aria-describedby="customerHelp" placeholder="Enter Customer Id">-->
-<!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="startDate">Start Date</label>-->
-<!--    <input type="date" class="form-control" id="startDate" placeholder="Enter Start Date">-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="expiryDate">Expiry Date</label>-->
-<!--    <input type="date" class="form-control" id="expiryDate" placeholder="Enter Expiry Date">-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <label for="amount">Amount</label>-->
-<!--    <input type="number" class="form-control" id="amount" min="1" placeholder="Enter Amount">-->
-<!--  </div>-->
-<!--  <div class="form-check">-->
-<!--    <label class="form-check-label" for="autoReview">Auto Review</label>-->
-<!--    <input type="checkbox" class="form-check-input" id="autoReview">-->
-<!--  </div>-->
-<!--  <button type="submit" class="btn my-1">Submit</button>-->
-<!--  <button class="btn my-1" (click)="onHomeClick()">Back</button>-->
-
-<!--</form>-->
-
-
-<!--<div class="main-div">-->
-<!--  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">-->
-<!--    <label for="customerId">Customer ID</label>-->
-<!--    <input type="text" name="customerId" [(ngModel)]="customerId" required #customerIdRef="ngModel" /><br>-->
-
-<!--    <label for="startDate">Start Date</label>-->
-<!--    <input type="date" name="startDate" [(ngModel)]="startDate" required #startDateRef="ngModel" /><br>-->
-
-<!--    <label for="expiryDate">Expiry Date</label>-->
-<!--    <input type="date" name="expiryDate" [(ngModel)]="expiryDate" required #expiryDateRef="ngModel" /><br>-->
-
-<!--    <label for="amount">Amount</label>-->
-<!--    <input type="number" name="amount" [(ngModel)]="amount" required #amountRef="ngModel" /><br>-->
-
-<!--    <label for="autoReview">Auto Review</label>-->
-<!--    <input type="checkbox" name="autoReview" [(ngModel)]="autoReview" /><br>-->
-
-<!--    <input type="submit" value="Submit">-->
-<!--    <button type="button" (click)="onHomeClick()">Back</button>-->
-<!--  </form>-->
-<!--</div>-->

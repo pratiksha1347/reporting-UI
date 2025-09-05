@@ -1,31 +1,59 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {NgForm} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-agreement-create-form',
   templateUrl: './agreement-create-form.component.html',
   styleUrls: ['./agreement-create-form.component.css']
 })
-export class AgreementCreateFormComponent {
+export class AgreementCreateFormComponent implements AfterViewInit{
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cd: ChangeDetectorRef) { }
 
-  myForm: NgForm | undefined;
 
-  customerId: string = '';
-  startDate: Date = new Date();
-  expiryDate: Date = new Date();
-  amount: number | null = null;
-  autoReview: boolean = false;
-
-  onSubmit(form: NgForm) {
-    alert('Agreement Created Successfully!');
+  ngAfterViewInit() {
+    this.cd.detectChanges();
   }
 
-  // Back button
+
+  form: FormGroup = new FormGroup({
+    customerId: new FormControl(null, [Validators.required]),
+    startDate: new FormControl(null, [Validators.required]),
+    expiryDate: new FormControl(null, [Validators.required]),
+    amount: new FormControl(),
+  });
+
+  get customerIdControl(): FormControl {
+    return this.form.get('customerId') as FormControl;
+  }
+
+  get amountControl(): FormControl {
+    return this.form.get('amount') as FormControl;
+  }
+
+  selectedStartDate(event: any) {
+    this.form.get('startDate')?.setValue(new Date(event));
+  }
+
+  selectedExpiryDate(event: any) {
+    this.form.get('expiryDate')?.setValue(new Date(event));
+  }
+
+
+  onSubmit() {
+    if(this.form.valid){
+      alert('Agreement Created Successfully!');
+      console.log(this.form.value);
+    }
+    else{
+      alert('Please fill all required fields!');
+    }
+
+  }
 
   onHomeClick(){
     this.router.navigate(['']);
   }
+
 }
