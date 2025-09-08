@@ -9,6 +9,9 @@ import {Router} from '@angular/router';
 export class AgreementViewTabComponent {
   agreementLabel: string = 'Create Agreement';
   reportLabel: string = 'Create Report';
+  createAgreement: boolean = false;
+  createReport: boolean = false;
+
   configColumn = [
     {
       label: 'Customer',
@@ -128,23 +131,16 @@ export class AgreementViewTabComponent {
 
   }
 
+  onCloseModal() {
+    this.createAgreement = false;
+    this.createReport = false;
+  }
+
   onAgreementClick() {
-    this.router.navigate(['/create-agreement-form']).then(succes => {
-      if (succes) {
-        console.log('Navigation to create an agreement was successful!');
-      } else {
-        console.log('Navigation to create an agreement failed!');
-      }
-    });
+    this.createAgreement = true;
   }
 
   onReportClick() {
-    this.router.navigate(['/create-report-form']).then(succes => {
-      if (succes) {
-        console.log('Navigation to create a report was successful!');
-      } else {
-        console.log('Navigation to create a report failed!');
-      }
-    });
+    this.createReport = true;
   }
 }
