@@ -10,6 +10,7 @@ import { AgreementCreateFormComponent } from './modules/components/agreement-cre
 import {RouterOutlet} from "@angular/router";
 import { AgreementViewTabComponent } from './modules/components/agreement-view-tab/agreement-view-tab.component';
 import { AppRoutingModule } from './app-routing.module';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HcmNgModule,
     RouterOutlet,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
