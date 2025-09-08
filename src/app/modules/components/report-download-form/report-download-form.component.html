@@ -1,8 +1,7 @@
-<button (click)="onHomeClick()">{{'HOME'}}</button>
 <div class="container-sm container-md container-lg container-xl container-xxl">
   <div class="bg-white p-4 mt-5">
     <h2>Download Agreement</h2>
-    <form *ngIf="form!==undefined" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <form *ngIf="form!==undefined" [formGroup]="form">
       <ng-container>
         <div>
           <hcm-input
@@ -30,14 +29,9 @@
           <hcm-button
             [label]="'Download'"
             [variant]="'primary'"
-            (onButtonClick)="onSubmit(form)"
+            (onButtonClick)="onSubmit()"
           ></hcm-button>
 
-          <hcm-button
-            [label]="'Reset'"
-            [variant]="'ghost'"
-            (onButtonClick)="onReset()"
-          ></hcm-button>
         </div>
 
       </ng-container>

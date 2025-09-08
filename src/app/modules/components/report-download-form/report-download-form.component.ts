@@ -1,5 +1,4 @@
 import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
-import { Router } from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -9,10 +8,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ReportDownloadFormComponent implements AfterViewInit{
 
-  constructor(private router: Router, private cd: ChangeDetectorRef) { }
-  onHomeClick(){
-    this.router.navigate(['']);
-  }
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.cd.detectChanges();
@@ -36,7 +32,7 @@ export class ReportDownloadFormComponent implements AfterViewInit{
     this.form.get('toDate')?.setValue(new Date(event));
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit() {
 
     if(this.form.invalid){
       alert('Please fill all the required fields!');
@@ -46,7 +42,4 @@ export class ReportDownloadFormComponent implements AfterViewInit{
     console.log(this.form.value);
   }
 
-  onReset(){
-    this.form.reset();
-  }
 }
