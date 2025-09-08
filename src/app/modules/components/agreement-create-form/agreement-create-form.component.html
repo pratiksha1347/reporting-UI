@@ -1,73 +1,67 @@
-<div class="container-sm container-md container-lg container-xl container-xxl d-flex justify-content-center min-vh-80 mt-5">
-  <div class="bg-white p-5 shadow rounded w-100" style="max-width: 600px;">
+<div
+  class="container-sm container-md container-lg container-xl container-xxl d-flex justify-content-center min-vh-80 mt-4">
+  <div class="w-100 main-div">
     <h2 class="mb-4 text-center">Create Agreement</h2>
 
-    <form *ngIf="form!==undefined" [formGroup]="form">
-      <ng-container>
-        <!-- Customer Id -->
-        <div class="mb-3">
-          <hcm-input
-            [label]="'Customer_Id'"
-            [required]="true"
-            [type]="'text'"
-            [placeholder]="'Enter Customer Id'"
-            [control]="customerIdControl">
-          </hcm-input>
-        </div>
+    <form [formGroup]="form">
+      <!-- Customer Id -->
+      <div class="mb-3">
+        <hcm-input
+          [label]="'Customer_Id'"
+          [required]="true"
+          [type]="'text'"
+          [placeholder]="'Enter Customer Id'"
+          [control]="customerIdControl">
+        </hcm-input>
+      </div>
 
-        <!-- Start Date -->
-        <div class="mb-3">
-          <hcm-datepicker
-            [isRequired]="true"
-            [label]="'Start Date'"
-            [placeholderText]="'Enter Start Date'"
-            (getSelectedDate)="selectedStartDate($event)">
-          </hcm-datepicker>
-        </div>
+      <!-- Start Date -->
+      <div class="mb-3">
+        <hcm-datepicker
+          [isRequired]="true"
+          [label]="'Start Date'"
+          [placeholderText]="'Enter Start Date'"
+          (getSelectedDate)="selectedStartDate($event)">
+        </hcm-datepicker>
+      </div>
 
-        <!-- Expiry Date -->
-        <div class="mb-3">
-          <hcm-datepicker
-            [isRequired]="true"
-            [label]="'Expiry Date'"
-            [placeholderText]="'Enter Expiry Date'"
-            (getSelectedDate)="selectedExpiryDate($event)">
-          </hcm-datepicker>
-        </div>
+      <!-- Expiry Date -->
+      <div class="mb-3">
+        <hcm-datepicker
+          [isRequired]="true"
+          [label]="'Expiry Date'"
+          [placeholderText]="'Enter Expiry Date'"
+          (getSelectedDate)="selectedExpiryDate($event)">
+        </hcm-datepicker>
+      </div>
 
-        <!-- Amount -->
-        <div class="mb-4">
-          <hcm-input
-            [required]="true"
-            [type]="'number'"
-            [label]="'Amount'"
-            [placeholder]="'Enter Amount'"
-            [control]="amountControl">
-          </hcm-input>
-        </div>
+      <!-- Amount -->
+      <div class="mb-4">
+        <hcm-input
+          [required]="true"
+          [type]="'number'"
+          [label]="'Amount'"
+          [placeholder]="'Enter Amount'"
+          [control]="amountControl">
+        </hcm-input>
+      </div>
 
-        <div class="mb-4">
-          <hcm-radio
-            [label]="'Auto Renewal'"
-          ></hcm-radio>
-        </div>
+      <div class="mb-4">
+        <hcm-checkbox
+          [label]="'Auto Renewal'"
+        ></hcm-checkbox>
+      </div>
 
 
-        <!-- Action Buttons -->
-        <div class="d-flex justify-content-between">
-          <hcm-button
-            [label]="'Back'"
-            [variant]="'ghost'"
-            (onButtonClick)="onHomeClick()">
-          </hcm-button>
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-center">
+        <hcm-button
+          [label]="'Submit'"
+          [variant]="'primary'"
+          (onButtonClick)="onSubmit()">
+        </hcm-button>
+      </div>
 
-          <hcm-button
-            [label]="'Submit'"
-            [variant]="'primary'"
-            (onButtonClick)="onSubmit()">
-          </hcm-button>
-        </div>
-      </ng-container>
     </form>
   </div>
 </div>

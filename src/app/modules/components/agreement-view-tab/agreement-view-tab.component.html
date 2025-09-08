@@ -31,8 +31,8 @@
       </div>
     </div>
   </div>
-  <hcm-modal [toggleModal]="createAgreement" (onClose)="onCloseModal()">
-    Agreement Form
+  <hcm-modal [toggleModal]="createAgreement" [insideContent]="'medium'" (onClose)="onCloseModal()">
+    <app-agreement-create-form></app-agreement-create-form>
   </hcm-modal>
   <hcm-modal [toggleModal]="createReport" (onClose)="onCloseModal()">
     Report Form

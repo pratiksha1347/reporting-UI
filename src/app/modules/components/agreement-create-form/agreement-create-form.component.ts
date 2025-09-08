@@ -1,5 +1,4 @@
 import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
-import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -9,19 +8,17 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class AgreementCreateFormComponent implements AfterViewInit{
 
-  constructor(private router: Router, private cd: ChangeDetectorRef) { }
-
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     this.cd.detectChanges();
   }
 
-
   form: FormGroup = new FormGroup({
     customerId: new FormControl(null, [Validators.required]),
     startDate: new FormControl(null, [Validators.required]),
     expiryDate: new FormControl(null, [Validators.required]),
-    amount: new FormControl(),
+    amount: new FormControl(null, [Validators.required, Validators.min(1)]),
   });
 
   get customerIdControl(): FormControl {
@@ -49,11 +46,5 @@ export class AgreementCreateFormComponent implements AfterViewInit{
     else{
       alert('Please fill all required fields!');
     }
-
   }
-
-  onHomeClick(){
-    this.router.navigate(['']);
-  }
-
 }
