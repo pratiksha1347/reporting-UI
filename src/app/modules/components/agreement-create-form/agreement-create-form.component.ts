@@ -19,6 +19,7 @@ export class AgreementCreateFormComponent implements AfterViewInit{
     startDate: new FormControl(null, [Validators.required]),
     expiryDate: new FormControl(null, [Validators.required]),
     amount: new FormControl(null, [Validators.required, Validators.min(1)]),
+    autoRenewal: new FormControl(false)
   });
 
   get customerIdControl(): FormControl {
@@ -37,6 +38,9 @@ export class AgreementCreateFormComponent implements AfterViewInit{
     this.form.get('expiryDate')?.setValue(new Date(event));
   }
 
+  changeValue(event: any) {
+    this.form.get('autoRenewal')?.setValue(event);
+  }
 
   onSubmit() {
     if(this.form.valid){

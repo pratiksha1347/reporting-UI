@@ -1,5 +1,4 @@
-<div
-  class="container-sm container-md container-lg container-xl container-xxl d-flex justify-content-center min-vh-80 mt-4">
+<div class="container-sm container-md container-lg container-xl container-xxl d-flex justify-content-center min-vh-80 mt-4">
   <div class="w-100 main-div">
     <h2 class="mb-4 text-center">Create Agreement</h2>
 
@@ -49,6 +48,7 @@
       <div class="mb-4">
         <hcm-checkbox
           [label]="'Auto Renewal'"
+          (onChange)="changeValue($event)"
         ></hcm-checkbox>
       </div>
 
