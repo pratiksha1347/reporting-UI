@@ -7,7 +7,6 @@ import {FooterComponent} from "./modules/components/footer/footer.component";
 import {HcmNgModule} from "hcm-angular";
 import { ReportDownloadFormComponent } from './modules/components/report-download-form/report-download-form.component';
 import { AgreementCreateFormComponent } from './modules/components/agreement-create-form/agreement-create-form.component';
-import {RouterOutlet} from "@angular/router";
 import { AgreementViewTabComponent } from './modules/components/agreement-view-tab/agreement-view-tab.component';
 import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -24,7 +23,6 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     HcmNgModule,
-    RouterOutlet,
     AppRoutingModule,
     ReactiveFormsModule
   ],
